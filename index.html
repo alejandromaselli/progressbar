@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./loading-bar.min.css" />
+    <style>
+      .ldBar-label {
+        color: #0e9f6e;
+        font-family: "Arial";
+      }
+      .ldBar path.mainline {
+        stroke-width: 10;
+        stroke: #0e9f6f75;
+        stroke-linecap: round;
+      }
+      .ldBar path.baseline {
+        stroke-width: 14;
+        stroke: #0e9f6e;
+        stroke-linecap: round;
+        filter: url(#custom-shadow);
+      }
+      .myBar .ldBar-label {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="myBar label-center"
+      style="border: 1px solid red; position: absolute"
+    ></div>
+    <div class="myBar2 label-center" style="border: 1px solid black"></div>
+  </body>
+  <script src="./loading-bar.min.js"></script>
+  <script>
+    var bar = new ldBar(".myBar", {
+      stroke: "#0E9F6E",
+      "stroke-width": 10,
+      preset: "circle",
+      value: 100,
+      "font-family": "Arial",
+    });
+    var bar = new ldBar(".myBar2", {
+      stroke: "#0E9F6E",
+      "stroke-width": 10,
+      preset: "circle",
+      value: 0,
+      "font-family": "Arial",
+    });
+    setInterval(() => {
+      bar.set(100 /* target value. */ /* enable animation. default is true */);
+    }, 1000);
+  </script>
+</html>
